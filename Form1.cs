@@ -40,7 +40,7 @@ namespace FlappyBirdWin
 			OyunuSifirla();
 
 			oyunZamanlayici = new System.Windows.Forms.Timer();
-			oyunZamanlayici.Interval = 16; // ~60 FPS
+			oyunZamanlayici.Interval = 16;
 			oyunZamanlayici.Tick += OyunZamanlayici_Tick;
 			oyunZamanlayici.Start();
 		}
@@ -98,7 +98,6 @@ namespace FlappyBirdWin
 		{
 			if (!oyunBitti && oyunBasladi)
 			{
-				// fizik
 				kusHizi += yercekimi;
 				kusY += kusHizi;
 
@@ -110,7 +109,6 @@ namespace FlappyBirdWin
 					skor++;
 				}
 
-				// çarpışmalar
 				var kusDikdortgen = new Rectangle(80, (int)kusY, 34, 24);
 				var ustBoruDikdortgen = new Rectangle(boruX, 0, 80, boslukY - boslukYuksekligi / 2);
 				var altBoruDikdortgen = new Rectangle(boruX, boslukY + boslukYuksekligi / 2, 80, Height - (boslukY + boslukYuksekligi / 2) - 100);
@@ -131,20 +129,13 @@ namespace FlappyBirdWin
 		{
 			var g = e.Graphics;
 
-			// arkaplan
 			g.DrawImage(arkaplanResmi, new Rectangle(0, 0, Width, Height));
-
-			// borular
 			BorulariCiz(g);
-
-			// zemin
 			g.DrawImage(zeminResmi, new Rectangle(0, Height - 100, Width, 100));
 
-			// kuş
 			var kus = kusKareleri[aktifKareIndeksi];
 			g.DrawImage(kus, new Rectangle(80, (int)kusY, kus.Width, kus.Height));
 
-			// HUD
 			using var hudBrush = new SolidBrush(Color.White);
 			using var outline = new SolidBrush(Color.Black);
 			var skorMetni = $"Skor: {skor}";
@@ -172,7 +163,6 @@ namespace FlappyBirdWin
 			int ustBoruYuksekligi = Math.Max(0, boslukY - boslukYuksekligi / 2);
 			int altBoruYuksekligi = Math.Max(0, Height - (boslukY + boslukYuksekligi / 2) - 100);
 
-			// üst boru (görsel olarak ters çevrilmiş)
 			if (ustBoruYuksekligi > 0)
 			{
 				var state = g.Save();
@@ -182,7 +172,6 @@ namespace FlappyBirdWin
 				g.Restore(state);
 			}
 
-			// alt boru
 			if (altBoruYuksekligi > 0)
 			{
 				g.DrawImage(boruResmi, new Rectangle(boruX, boslukY + boslukYuksekligi / 2, 80, altBoruYuksekligi));
