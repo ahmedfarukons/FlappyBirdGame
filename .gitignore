@@ -1,0 +1,43 @@
+# Build artifacts
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+
+# Rider/JetBrains
+.idea/
+*.iml
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Logs
+*.log
+
+# Test results
+TestResult*/
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Publish output
+publish/
+
+# OS
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temp
+~$*
+*.tmp
