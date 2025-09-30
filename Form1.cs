@@ -36,7 +36,7 @@ namespace FlappyBirdWin
 			KeyPreview = true;
 			KeyDown += Form1_TusaBasildi;
 
-			VarliklariYukle();
+			ResimleriYukle();
 			OyunuSifirla();
 
 			oyunZamanlayici = new System.Windows.Forms.Timer();
@@ -45,20 +45,20 @@ namespace FlappyBirdWin
 			oyunZamanlayici.Start();
 		}
 
-		private void VarliklariYukle()
+		private void ResimleriYukle()
 		{
-			arkaplanResmi = Image.FromFile(VarlikYolu("background-day.png"));
-			zeminResmi = Image.FromFile(VarlikYolu("base.png"));
-			boruResmi = Image.FromFile(VarlikYolu("pipe-green.png"));
+			arkaplanResmi = Image.FromFile(ResimYolu("background-day.png"));
+			zeminResmi = Image.FromFile(ResimYolu("base.png"));
+			boruResmi = Image.FromFile(ResimYolu("pipe-green.png"));
 			kusKareleri = new[]
 			{
-				Image.FromFile(VarlikYolu("yellowbird-downflap.png")),
-				Image.FromFile(VarlikYolu("yellowbird-midflap.png")),
-				Image.FromFile(VarlikYolu("yellowbird-upflap.png"))
+				Image.FromFile(ResimYolu("yellowbird-downflap.png")),
+				Image.FromFile(ResimYolu("yellowbird-midflap.png")),
+				Image.FromFile(ResimYolu("yellowbird-upflap.png"))
 			};
 		}
 
-		private string VarlikYolu(string dosyaAdi)
+		private string ResimYolu(string dosyaAdi)
 		{
 			var adayYollar = new List<string>();
 			var baseDir = AppContext.BaseDirectory;
@@ -78,7 +78,7 @@ namespace FlappyBirdWin
 				if (File.Exists(yol)) return yol;
 			}
 
-			throw new FileNotFoundException($"Varlık bulunamadı: {dosyaAdi}\nDenenen yollar:\n{string.Join("\n", adayYollar)}");
+			throw new FileNotFoundException($"Resim bulunamadı: {dosyaAdi}\nDenenen yollar:\n{string.Join("\n", adayYollar)}");
 		}
 
 		private void OyunuSifirla()

@@ -4,6 +4,8 @@ Klasik Flappy Bird oyununun Windows Forms ile geliştirilmiş C# versiyonu. Tür
 
 ## 📸 Ekran Görüntüsü
 
+![Flappy Bird Oyun Ekranı](screenshot.png)
+
 Oyun 400x600 boyutunda bir pencerede çalışır ve orijinal Flappy Bird tasarımını takip eder:
 - Gündüz temalı arkaplan
 - Yeşil borular
@@ -96,7 +98,8 @@ FlappyBirdWin/
 - `oyunBasladi`, `oyunBitti`: Oyun durumu
 
 **Ana Metodlar:**
-- `VarliklariYukle()`: PNG görsellerini yükler
+- `ResimleriYukle()`: PNG görsellerini yükler
+- `ResimYolu()`: Görsellerin dosya yolunu bulur
 - `OyunuSifirla()`: Oyun değişkenlerini başlangıç durumuna getirir
 - `OyunZamanlayici_Tick()`: Her frame'de fizik ve çarpışma hesaplamaları
 - `OnPaint()`: Ekrana çizim işlemleri
@@ -144,7 +147,7 @@ Height = 600;  // Yükseklik
 
 ## 🐛 Bilinen Sorunlar ve Çözümler
 
-### "Varlık bulunamadı" Hatası
+### "Resim bulunamadı" Hatası
 
 Eğer görseller yüklenmiyorsa:
 1. `Assets` klasörünün proje kök dizininde olduğundan emin olun
@@ -173,10 +176,11 @@ Pull request'ler memnuniyetle karşılanır:
 
 - **v1.0** (2025) - İlk yayın
   - Temel oyun mekaniği
-  - Türkçe değişken isimlendirmeleri
-  - Sağlam varlık yükleme sistemi
+  - Türkçe değişken ve metod isimlendirmeleri
+  - Sağlam resim yükleme sistemi (`ResimleriYukle`, `ResimYolu`)
   - Çarpışma algılama
   - Skor sistemi
+  - Ekran görüntüsü eklendi
 
 ---
 
